@@ -20,13 +20,12 @@ remote_freq = st.selectbox("Remote Work Frequency (%)", [0, 25, 50, 75, 100])
 training_hours = st.slider("Training Hours", 0, 100, 20)
 promotions = st.slider("Number of Promotions", 0, 10, 1)
 satisfaction = st.slider("Employee Satisfaction Score", 0.0, 1.0, 0.5)
-is_peak = st.selectbox("Peak Season (1=Yes, 0=No)", [0, 1])
 
 # Prediction button
 if st.button("Predict Resignation"):
     features = np.array([[years_at_company, performance_score, monthly_salary,
                           remote_freq, training_hours, promotions,
-                          satisfaction, is_peak]])
+                          satisfaction])
 
     features_scaled = scaler.transform(features)
     prediction = model.predict(features_scaled)[0]
