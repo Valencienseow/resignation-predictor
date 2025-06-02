@@ -25,7 +25,7 @@ satisfaction = st.slider("Employee Satisfaction Score", 0.0, 1.0, 0.5)
 if st.button("Predict Resignation"):
     features = np.array([[years_at_company, performance_score, monthly_salary,
                           remote_freq, training_hours, promotions,
-                          satisfaction])
+                          satisfaction]])
 
     features_scaled = scaler.transform(features)
     prediction = model.predict(features_scaled)[0]
