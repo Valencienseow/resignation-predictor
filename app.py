@@ -33,4 +33,13 @@ if st.button("Predict Resignation"):
 
     st.subheader("📊 Prediction Result")
     st.success("✅ Likely to Stay" if prediction == 0 else "⚠️ Likely to Resign")
+    if prob >= 0.7:
+        st.error("🔴 High Risk: Likely to Resign")
+    elif prob >= 0.4:
+        st.warning("🟠 Medium Risk: Uncertain")
+    else:
+        st.success("✅ Low Risk: Likely to Stay")
+
+    # st.metric("Resignation Probability", f"{prob:.2%}")
     st.metric(label="Resignation Probability", value=f"{prob:.2%}")
+   
